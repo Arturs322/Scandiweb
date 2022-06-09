@@ -1,0 +1,105 @@
+body {
+    margin-right: 150px;
+    margin-left: 150px;
+}
+#delete-product-btn {
+    background-color: red;
+    border-radius: 4px;
+    border: 0;
+    color: #fff;
+    padding: 7px 7px 7px 7px;
+
+}
+
+#delete-product-btn:hover {
+    background-color: crimson;
+}
+#add-product-btn {
+    background-color: green;
+    border-radius: 4px;
+    border: 0;
+    color: #fff;
+    padding: 7px 7px 7px 7px;
+    margin-right: 10px;
+}
+
+#add-product-btn:hover {
+    background-color: limegreen;
+}
+#cancel-product-btn {
+    background-color: red;
+    border-radius: 4px;
+    border: 0;
+    color: #fff;
+    padding: 12px 12px 12px 12px;
+}
+
+#cancel-product-btn:hover {
+    background-color: crimson;
+}
+#save-product-btn {
+    background-color: green;
+    border-radius: 4px;
+    border: 0;
+    color: #fff;
+    padding: 12px 12px 12px 12px;
+    margin-right: 10px;
+}
+
+#save-product-btn:hover {
+    background-color: limegreen;
+}
+hr {
+    width: auto;
+    height: 3px;
+    background-color: #ccc;
+    border: none;
+}
+
+.right {
+    float: right;
+    text-decoration: none;
+    padding-top: 15px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: inline;
+    text-decoration: none;
+}
+
+.title {
+    font-size: 50px;
+    text-decoration: none;
+    color: black;
+}
+
+#product_form label {
+    text-align: center;
+    justify-content: center;
+}
+
+td, th {
+    width: 200px;
+    text-align: center;
+}
+
+.test {
+    display: flex;
+    justify-content: center;
+}
+a:hover {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+.delete-checkbox {
+    width: 20px; height: 20px;
+}
+
