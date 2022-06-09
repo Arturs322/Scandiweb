@@ -3,7 +3,7 @@ require_once "vendor/autoload.php";
 use Scandiweb\backend\MySQLData;
 $MySQLData = new MySQLData();
 //general information
-$SKU = $_POST['SKU'];
+$SKU = $_POST['sku'];
 $name = $_POST['name'];
 $price = $_POST['price'];
 //DVD
@@ -14,7 +14,7 @@ $width = $_POST['width'];
 $length = $_POST['length'];
 $dimension = $height . "x" . $width . "x" . $length;
 //book
-$weight = $_POST['Book'];
+$weight = $_POST['weight'];
 ?>
 <!doctype html>
 <html lang="en">
@@ -38,7 +38,7 @@ $weight = $_POST['Book'];
     <li class="right"><input form="product_form" type="submit" value="Save" id="save-product-btn"></li>
 </ul>
 
-<?php if (isset($_POST['SKU'])) {
+<?php if (isset($_POST['sku'])) {
 
     header("Location: productList");
 } ?>
@@ -47,8 +47,8 @@ $weight = $_POST['Book'];
     <form id="product_form" action="" method="POST">
         <?php include "app/backend/Validation.php"; ?>
         <div class="form-group">
-            <label for="SKU">SKU</label><br>
-            <input type="text" id="SKU" name="SKU" placeholder="GGWP1337" required><br>
+            <label for="sku">SKU</label><br>
+            <input type="text" id="sku" name="sku" placeholder="GGWP1337" required><br>
         </div>
 
         <div class="form-group">
@@ -105,8 +105,8 @@ $weight = $_POST['Book'];
 
             case 'Book':
                 document.getElementById("div1").innerHTML = "\n" +
-                    "                    <label for=\"Book\">Weight (KG)</label><br>\n" +
-                    "                    <input type=\"number\" id=\"Book\" name=\"Book\" placeholder=\"5\" required><br>\n" +
+                    "                    <label for=\"weight\">Weight (KG)</label><br>\n" +
+                    "                    <input type=\"number\" id=\"weight\" name=\"weight\" placeholder=\"5\" required><br>\n" +
                     "                    <p>\n" +
                     "                        Please, provide weight of the book.\n" +
                     "                    </p>\n";
@@ -126,7 +126,7 @@ if (isset($_POST["size"])) {
 if (isset($_POST["height"], $_POST["width"], $_POST["length"])) {
     $MySQLData->insertDataFur($SKU, $name, $price, $dimension);
 }
-if (isset($_POST["Book"])) {
+if (isset($_POST["weight"])) {
     $MySQLData->insertDatabook($SKU, $name, $price, $weight);
 }
 
