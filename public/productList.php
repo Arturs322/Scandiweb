@@ -18,7 +18,7 @@ $mySQLData = new MySQLData();
 
 <ul>
     <li><a href="/productList" class="title">Product List</a></li>
-    <li class="right"><input form="list" type="submit" name="delete-product-btn" id="delete-product-btn" value="Delete records"></li>
+    <li class="right"><input form="list" type="submit" name="delete-product-btn" id="delete-product-btn" value="MASS DELETE"></li>
     <li class="right"><button type="submit" onclick="window.location='productAdd';" id="add-product-btn">ADD</button></li>
 </ul>
 
