@@ -5,8 +5,8 @@ namespace Scandiweb\backend;
 abstract class DatabaseConnection
 {
     protected string $servername = "localhost";
-    protected string $username = "arturx";
-    protected string $password = "artursmysql123";
+    protected string $username = "";
+    protected string $password = "";
     protected string $dbname = "scandiweb";
     protected string $dbtable = "products";
 
