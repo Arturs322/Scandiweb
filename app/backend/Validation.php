@@ -11,40 +11,40 @@ if (isset($_POST['price']))
 
 if (isset($_POST['size']))
 {
-    $price = $_POST ["size"];
-    if (!preg_match ("/^[0-9]*$/", $price) ){
+    $size = $_POST ["size"];
+    if (!preg_match ("/^[0-9]*$/", $size) ){
         echo $error;
     }
 }
 
 if (isset($_POST['height']))
 {
-    $price = $_POST ["height"];
-    if (!preg_match ("/^[0-9]*$/", $price) ){
+    $height = $_POST ["height"];
+    if (!preg_match ("/^[0-9]*$/", $height) ){
         echo $error;
     }
 }
 
 if (isset($_POST['width']))
 {
-    $price = $_POST ["width"];
-    if (!preg_match ("/^[0-9]*$/", $price) ){
+    $width = $_POST ["width"];
+    if (!preg_match ("/^[0-9]*$/", $width) ){
         echo $error;
     }
 }
 
 if (isset($_POST['length']))
 {
-    $price = $_POST ["length"];
-    if (!preg_match ("/^[0-9]*$/", $price) ){
+    $length = $_POST ["length"];
+    if (!preg_match ("/^[0-9]*$/", $length) ){
         echo $error;
     }
 }
 
 if (isset($_POST['Book']))
 {
-    $price = $_POST ["Book"];
-    if (!preg_match ("/^[0-9]*$/", $price) ){
+    $weight = $_POST ["Book"];
+    if (!preg_match ("/^[0-9]*$/", $weight) ){
         echo $error;
     }
 }
