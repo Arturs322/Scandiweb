@@ -1,42 +1,31 @@
 <?php
 
-namespace Scandiweb\Products;
+namespace Scandiweb\backend\Products;
 
 class Furniture extends Product
 {
-    protected float $height;
-    protected float $width;
-    protected float $length;
+    protected string $dimension;
 
-    public function __construct(string $SKU, string $name, float $price, float $height, float $width, $length)
+    public function __construct(string $SKU, string $name, float $price, string $dimension)
     {
         parent::__construct($SKU, $name, $price);
-        $this->height = $height;
-        $this->width = $width;
-        $this->$length = $length;
+        $this->dimension = $dimension;
     }
 
     /**
-     * @return float
+     * @return string
      */
-    public function getHeight(): float
+    public function getDimension(): string
     {
-        return $this->height;
+        return $this->dimension;
     }
 
-    /**
-     * @return float
-     */
-    public function getWidth(): float
+    public function validateType($type): bool
     {
-        return $this->width;
-    }
-
-    /**
-     * @return float
-     */
-    public function getLength(): float
-    {
-        return $this->length;
+        if (is_string($type) && strlen($type) >= 0)
+        {
+            return true;
+        }
+        return false;
     }
 }

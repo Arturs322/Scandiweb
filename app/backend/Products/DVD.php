@@ -1,22 +1,31 @@
 <?php
 
-namespace Scandiweb\Products;
+namespace Scandiweb\backend\Products;
 
 class DVD extends Product
 {
-    protected float $size;
+    protected int $size;
 
-    public function __construct(string $SKU, string $name, float $price, float $size)
+    public function __construct(string $SKU, string $name, float $price, int $size)
     {
         parent::__construct($SKU, $name, $price);
         $this->size = $size;
     }
 
     /**
-     * @return float
+     * @return int
      */
-    public function getSize(): float
+    public function getSize(): int
     {
         return $this->size;
+    }
+
+    public function validateType($type): bool
+    {
+        if (filter_var($type, FILTER_VALIDATE_INT)!== false && is_numeric($type) && strlen($type) >= 0)
+        {
+            return true;
+        }
+        return false;
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Scandiweb\Products;
+namespace Scandiweb\backend\Products;
 
 class Book extends Product
 {
@@ -18,5 +18,14 @@ class Book extends Product
     public function getWeight(): int
     {
         return $this->weight;
+    }
+
+    public function validateType($type): bool
+    {
+        if (filter_var($type, FILTER_VALIDATE_INT)!== false && is_numeric($type) && strlen($type) >= 0)
+        {
+            return true;
+        }
+        return false;
     }
 }

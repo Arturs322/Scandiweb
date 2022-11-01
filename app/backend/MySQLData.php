@@ -2,49 +2,33 @@
 
 namespace Scandiweb\backend;
 
-class MySQLData extends DatabaseConnection {
+class MySQLData extends DatabaseConnection implements QueryInterface {
 
-    public function showData()
+    public function read()
     {
         $conn = $this->getMySQLConnection();
-        $results = mysqli_query($conn, "SELECT * FROM products ORDER BY id");
-        return $results;
+        return mysqli_query($conn, "SELECT * FROM " . $this->dbtable . " ORDER BY id");
     }
 
-    public function deleteData()
+    public function delete()
     {
         $conn = $this->getMySQLConnection();
         if (isset($_POST['delete-product-btn'])) {
             $arr = $_POST['checkbox'];
             foreach ($arr as $id) {
-                mysqli_query($conn, "DELETE FROM products WHERE id =" . $id);
+                mysqli_query($conn, "DELETE FROM " . $this->dbtable . " WHERE id =" . $id);
             }
 
         }
     }
 
-    public function insertDataDVD($SKU, $name, $price, $DVD)
+    public function insert($SKU, $name, $price, $value, $choose)
     {
 
         $conn = $this->getMySQLConnection();
-        mysqli_query($conn, "INSERT INTO " . $this->dbtable . "(SKU, name, price, size) VALUES 
-        ('$SKU', '$name', '$price', '$DVD')") or die(mysqli_error($conn));
+        mysqli_query($conn, "INSERT INTO " . $this->dbtable . "(SKU, name, price, {$choose}) VALUES 
+        ('$SKU', '$name', '$price', '$value')") or die(mysqli_error($conn));
 
     }
 
-    public function insertDatabook($SKU, $name, $price, $book)
-    {
-        $conn = $this->getMySQLConnection();
-        mysqli_query($conn, "INSERT INTO " . $this->dbtable . "(SKU, name, price, weight) VALUES 
-        ('$SKU', '$name', '$price', '$book')") or die(mysqli_error($conn));
-
-    }
-
-    public function insertDataFur($SKU, $name, $price, $dimension)
-    {
-        $conn = $this->getMySQLConnection();
-        mysqli_query($conn, "INSERT INTO " . $this->dbtable . "(SKU, name, price, dimensions) VALUES 
-        ('$SKU', '$name', '$price', '$dimension')") or die(mysqli_error($conn));
-
-    }
 }

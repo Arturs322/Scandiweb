@@ -1,8 +1,8 @@
 <?php
 
-namespace Scandiweb\Products;
+namespace Scandiweb\backend\Products;
 
-class Product
+abstract class Product
 {
     protected string $SKU;
     protected string $name;
@@ -14,6 +14,8 @@ class Product
         $this->name = $name;
         $this->price = $price;
     }
+
+    abstract public function validateType($type);
 
     /**
      * @return string
@@ -37,4 +39,5 @@ class Product
     {
         return $this->price;
     }
+
 }
