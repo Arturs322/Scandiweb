@@ -1,7 +1,7 @@
 <?php
 
-session_start();
-
+class router
+{
 function get($route, $path_to_include){
   if( $_SERVER['REQUEST_METHOD'] == 'GET' ){ route($route, $path_to_include); }  
 }
@@ -67,4 +67,5 @@ function is_csrf_valid(){
   if( ! isset($_SESSION['csrf']) || ! isset($_POST['csrf'])){ return false; }
   if( $_SESSION['csrf'] != $_POST['csrf']){ return false; }
   return true;
+}
 }
