@@ -9,15 +9,11 @@ class InsertData {
 
     public function insertDVD()
     {
-        $SKU = $_POST["SKU"];
-        $name = $_POST["name"];
-        $price = $_POST["price"];
-        $size = $_POST["size"];
         if (isset($_POST["size"]))
         {
             $MySQLData = new MySQLData();
-            $dvd = new DVD($SKU, $name, $price, $size);
-            echo $dvd->validateType($size);
+            $dvd = new DVD($_POST["SKU"], $_POST["name"], $_POST["price"], $_POST["size"]);
+            echo $dvd->validateType($_POST["size"]);
             $MySQLData->insert($dvd->getSKU(), $dvd->getName(), $dvd->getPrice(), $dvd->getSize(), "size");
 
         }
@@ -25,17 +21,11 @@ class InsertData {
 
     public function insertFurniture()
     {
-        $SKU = $_POST["SKU"];
-        $name = $_POST["name"];
-        $price = $_POST["price"];
-        $height = $_POST['height'];
-        $width = $_POST['width'];
-        $length = $_POST['length'];
-        $dimension = $height . "x" . $width . "x" . $length;
+        $dimension = $_POST['height'] . "x" . $_POST['width'] . "x" . $_POST['length'];
         if (isset($_POST["height"], $_POST["width"], $_POST["length"]))
         {
             $MySQLData = new MySQLData();
-            $furniture = new Furniture($SKU, $name, $price, $dimension);
+            $furniture = new Furniture($_POST["SKU"], $_POST["name"], $_POST["price"], $dimension);
             echo $furniture->validateType($dimension);
             $MySQLData->insert($furniture->getSKU(), $furniture->getName(), $furniture->getPrice(), $furniture->getDimension(), "dimensions");
 
@@ -45,15 +35,11 @@ class InsertData {
 
     public function insertBook()
     {
-        $SKU = $_POST["SKU"];
-        $name = $_POST["name"];
-        $price = $_POST["price"];
-        $weight = $_POST['Book'];
         if (isset($_POST["Book"]))
         {
             $MySQLData = new MySQLData();
-            $book = new Book($SKU, $name, $price, $weight);
-            echo $book->validateType($weight);
+            $book = new Book($_POST["SKU"], $_POST["name"], $_POST["price"], $_POST["Book"]);
+            echo $book->validateType($_POST["Book"]);
             $MySQLData->insert($book->getSKU(), $book->getName(), $book->getPrice(), $book->getWeight(), "weight");
 
         }
